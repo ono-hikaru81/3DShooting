@@ -10,8 +10,8 @@ namespace Utility
 	class Singleton
 	{
 	protected:
-		Singleton() = default;
-		virtual ~Singleton() = default;
+		Singleton() {}
+		virtual ~Singleton() {}
 
 	public:
 		static std::weak_ptr<T> Instance()
@@ -20,6 +20,8 @@ namespace Utility
 			{
 				instance.reset(new T());
 			}
+
+			return instance;
 		}
 
 	private:
