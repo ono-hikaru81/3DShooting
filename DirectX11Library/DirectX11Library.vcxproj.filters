@@ -41,6 +41,18 @@
     <Filter Include="ソース ファイル\Library\Camera">
       <UniqueIdentifier>{1ff20fd4-32de-428f-9a88-d91312e81f4c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Game">
+      <UniqueIdentifier>{b4a704ab-a31c-4b53-9199-e3953bdb3229}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Manager">
+      <UniqueIdentifier>{831c4116-42f2-4eca-92b8-5210f8df4190}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Object">
+      <UniqueIdentifier>{a1bdcdc5-c278-4574-9c81-0d56274c328f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Scene">
+      <UniqueIdentifier>{01b35dbb-b28d-4bb3-947b-536468c11207}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Main.cpp">
@@ -81,6 +93,33 @@
     </ClCompile>
     <ClCompile Include="Src\Library\Library.cpp">
       <Filter>ソース ファイル\Library</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Game\Scene\InGameScene.cpp">
+      <Filter>ソース ファイル\Game\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Game\Scene\ResultScene.cpp">
+      <Filter>ソース ファイル\Game\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Game\Scene\TitleScene.cpp">
+      <Filter>ソース ファイル\Game\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Game\Object\Bullet.cpp">
+      <Filter>ソース ファイル\Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Game\Object\BulletFactory.cpp">
+      <Filter>ソース ファイル\Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Game\Object\Enemy.cpp">
+      <Filter>ソース ファイル\Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Game\Object\EnemyFactory.cpp">
+      <Filter>ソース ファイル\Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Game\Object\Player.cpp">
+      <Filter>ソース ファイル\Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Game\Manager\SceneManager.cpp">
+      <Filter>ソース ファイル\Game\Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -131,6 +170,36 @@
     </ClInclude>
     <ClInclude Include="Src\Library\Camera\Camera.h">
       <Filter>ソース ファイル\Library\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Game\Scene\InGameScene.h">
+      <Filter>ソース ファイル\Game\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Game\Scene\ResultScene.h">
+      <Filter>ソース ファイル\Game\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Game\Scene\SceneBase.h">
+      <Filter>ソース ファイル\Game\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Game\Scene\TitleScene.h">
+      <Filter>ソース ファイル\Game\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Game\Object\Bullet.h">
+      <Filter>ソース ファイル\Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Game\Object\BulletFactory.h">
+      <Filter>ソース ファイル\Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Game\Object\Enemy.h">
+      <Filter>ソース ファイル\Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Game\Object\EnemyFactory.h">
+      <Filter>ソース ファイル\Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Game\Object\Player.h">
+      <Filter>ソース ファイル\Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Game\Manager\SceneManager.h">
+      <Filter>ソース ファイル\Game\Manager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

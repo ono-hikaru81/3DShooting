@@ -1,24 +1,18 @@
 ﻿
 #include "Definition.h"
 #include "Library/Library.h"
+#include "Game/Manager/SceneManager.h"
 
 int APIENTRY WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ INT)
 {
 	// エンジン初期化
 	if (!Engine::Library::Initialize("DirectX11Library", static_cast<int>(WindowInfo::size.GetX()), static_cast<int>(WindowInfo::size.GetY()))) return 0;
 
-	// 画像読み込み
-	if (!Engine::Library::LoadTexture(L"Res/Texture/miniball.png")) return 0;
-
 	// 音楽ファイル読み込み
 	Engine::Library::LoadSoundFile(Engine::Sound::File::TestBGM, "Res/Sound/loop1.wav");
 
-	// objファイル読み込み
-	if(!Engine::Library::LoadObjFile("Res/Model/hikouki.obj")) return 0;
-
-	Utility::Vector pos = Utility::Vector(0.0f, 0.0f, 0.0f);
-	Utility::Vector degree = Utility::Vector(0.0f, 0.0f, 0.0f);
-	Utility::Vector scale = Utility::Vector(1.0f, 1.0f, 1.0f);
+	// シーン作成
+	auto sceneManager = scene::SceneManager::Instance();
 
 	// メインループ
 	while (true)
@@ -36,8 +30,14 @@ int APIENTRY WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ INT)
 		}
 		else
 		{
+			// 描画開始
 			Engine::Library::StartRendering();
+
+			// 入力更新
 			Engine::Library::InputUpdate();
+
+			// シーン更新
+			sceneManager.lock()->Update();
 
 			if (Engine::Library::IsKeyHeld(DIK_R))
 			{
@@ -51,22 +51,7 @@ int APIENTRY WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ INT)
 				Engine::Library::StopSoundFile(Engine::Sound::File::TestBGM);
 			}
 
-			// ポリゴン描画
-			Engine::Library::RenderTriangle(0.0f, 0.0f, 100.0f, 100.0f, 0.0f, Utility::Vector(1.0f, 0.0f, 1.0f));
-			Engine::Library::RenderRect(0.0f, 50.0f, 100.0f, 100.0f, 0.0f, Utility::Vector(1.0f, 1.0f, 1.0f));
-
-			// テクスチャ描画
-			Engine::Library::DrawTexture(L"Res/Texture/miniball.png", 0.0f, 0.0f, 32.0f, 32.0f);
-
-			degree.operator+=(Utility::Vector(1.0f, 0.0f, 0.0f));
-			degree.operator+=(Utility::Vector(0.0f, 1.0f, 0.0f));
-			degree.operator+=(Utility::Vector(0.0f, 0.0f, 1.0f));
-			// objファイル描画
-			Engine::Library::RenderObjFile(pos, scale, degree);
-
-			// カメラ更新
-			Engine::Library::UpdateCamera(pos, Utility::Vector{ 0.0f, 0.0f, 0.0f});
-
+			// 描画終了
 			Engine::Library::FinishRendering();
 		}
 	}
